@@ -1,0 +1,37 @@
+@startuml "Message classes"
+scale 2048*1024
+
+interface EncodeFn {
+    +apply(String, String): String
+}
+
+class HashFn {
+    +{static} apply(String): String
+}
+
+class Message {
+    -text: String
+    -signature: String
+
+    +Message()
+    +Message(String)
+    +sign(String, EncodeFn): Message
+    +getSignature(): String
+    +getText(): String
+}
+
+class MessageSigner {
+    -encodeFn: EncodeFn 
+    -secret: String
+
+    +MessageSigner(String)
+    +MessageSigner(String, EncodeFn)
+    +sign(Message): Message
+}
+
+MessageSigner *-u-> EncodeFn
+MessageSigner -u-> HashFn
+MessageSigner -> Message
+Message -u-> EncodeFn
+
+@enduml

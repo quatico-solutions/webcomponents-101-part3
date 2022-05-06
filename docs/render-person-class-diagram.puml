@@ -1,0 +1,32 @@
+@startuml "Render Persons"
+scale 2048*1024
+
+interface Person {
+    +forename: String
+    +surname: String
+}
+
+interface ViewListItem<T> {
+    +item: T;
+    +render(): String;
+}
+
+class ViewList<T, TListItem extends ViewListItem<T>> {
+    +items: TListItem[]
+    +ViewList(items: TListItem[])
+    +render(): String
+}
+
+class PersonListItem<Person> implements ViewListItem {
+    +item: Person
+    +PersonListItem(person: Person)
+    +render(): String
+}
+
+class PersonList<Person, PersonListItem> extends ViewList {}
+
+ViewListItem <-- PersonList
+PersonListItem *--> Person
+PersonList --> Person
+
+@enduml
