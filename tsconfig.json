@@ -2,20 +2,20 @@
     "compilerOptions": {
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
-        "target": "esnext",
         "declaration": true,
-        "noEmit": false,
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
         "lib": ["DOM", "DOM.Iterable", "ESNext"],
         "module": "esnext",
         "moduleResolution": "node",
+        "noEmit": false,
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "outDir": "./target/scripts",
         "strict": true,
+        "target": "esnext",
         "useDefineForClassFields": false
     },
     "include": ["./src/main/typescript"]
