@@ -9,7 +9,7 @@ module.exports = {
         },
     },
     moduleFileExtensions: ["ts", "js", "json", "node"],
-    modulePathIgnorePatterns: ["<rootDir>/dist/"],
+    modulePathIgnorePatterns: ["<rootDir>/target/"],
     testRegex: ".*spec\\.(js|ts)$",
     testEnvironmentOptions: {
         url: "http://localhost/",
