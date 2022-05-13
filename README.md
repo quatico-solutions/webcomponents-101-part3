@@ -1,5 +1,8 @@
 # webcomponents 101 Part 3: Reusable ES6 Modules with TypeScript
 
+[![Continuous Build](https://github.com/quatico-solutions/webcomponents-101-part3/actions/workflows/continuous-build.yml/badge.svg?event=push)](https://github.com/quatico-solutions/webcomponents-101-part3/actions/workflows/continuous-build.yml)
+
+
 An introduction to TypeScript for Java developers. This example project is a Java and TypeScript hybrid setup. It uses Maven to build the and TypeScript to compile the script files.
 
 This workshop gives an introduction to TypeScript particularly for Java developers. It explains specifics of the TypeScript language itself and introduces fundamental features, like type annotations, generic type signatures, type guards and assertions functions. It also gives an overview of how typing can be defined using specific utility types, union vs. intersection types, and type aliases vs. interfaces.
