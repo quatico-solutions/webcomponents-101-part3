@@ -8,15 +8,21 @@ Consider the Java program in this package as illustrated with the following clas
 
 ## Goals
 
-* Make the Java package `com.quatico.workshops.webcomponents.message` available in the TypeScript project as a module `message`
-* Replace the `Main` class with a default executing module script
-* Replace the classes `Message` and `MessageSigner` with corresponding TypeScript classes
-* Introduce a caller signature for the `EncodeFn` function
-* Replace the functional interface `HashFn` with a TypeScript function `hash`
+- Make the Java package `com.quatico.workshops.webcomponents.message` available in the TypeScript project as a module `message`
+- Replace the `Main` class with a default executing module script
+- Replace the classes `Message` and `MessageSigner` with corresponding TypeScript classes
+- Introduce a caller signature for the `EncodeFn` function
+- Replace the functional interface `HashFn` with a TypeScript function `hash`
 
 ## Stretch goals
 
-* Add unit tests using Jest for the classes `Message` and `MessageSigner` (see JUnit tests in the `src/test/java/com/quatico/workshops/webcomponents/message` package)
-* Add unit tests using Jest for the function `hash`
-* Improve the implementation of `HashFn.java` using your IDEs Java refactoring capabilities
-* Improve the implementation of `hash.ts` using your IDEs TypeScript refactoring capabilities
+- Add unit tests using Jest for the classes `Message` and `MessageSigner` (see JUnit tests in the `src/test/java/com/quatico/workshops/webcomponents/message` package)
+- Add unit tests using Jest for the function `hash`
+- Improve the implementation of `HashFn.java` using your IDEs Java refactoring capabilities
+- Improve the implementation of `hash.ts` using your IDEs TypeScript refactoring capabilities
+
+<style>
+    img {
+        width: 530px;
+    }
+</style>

@@ -30,3 +30,9 @@ console.log("People:", people);
 * Declare a type for render functions, e.g., `(obj: T) => string` and use it
 * Add unit tests for `renderPerson` and `renderList`
 * Improve the naive implementation, e.g. empty objects should be rendered as empty strings with length 0
+
+<style>
+    img {
+        width: 530px;
+    }
+</style>
