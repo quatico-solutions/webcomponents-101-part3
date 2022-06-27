@@ -4,8 +4,12 @@ import { JokeProperties, JokeService } from "./JokeService";
 export class JokeDataProvider {
     constructor(private service = new JokeService()) {}
 
-    public async getRandomJoke(categories?: string[]): Promise<JokeData> {
-        return (await this.service.getRandomJokes(1, categories))[0];
+    public async getRandomJoke(categories?: string[]): Promise<JokeData | undefined> {
+        const jokes = await this.service.getRandomJokes(1, categories);
+        if (jokes) {
+            return jokes[0];
+        }
+        return undefined;
     }
 
     public getRandomJokes(num = 3, categories?: string[]): Promise<JokeData[]> {
@@ -13,7 +17,11 @@ export class JokeDataProvider {
     }
 
     public getRandomJokesData(jokes: JokeData[], props?: JokeProperties): Partial<JokeData>[] {
-        return jokes.map(joke => this.service.getJokeData(joke, props));
+        const result: Partial<JokeData>[] = [];
+        for (const joke of jokes) {
+            result.push(this.service.getJokeData(joke, props));
+        }
+        return result;
     }
 
     public getCategories(): Promise<string[]> {

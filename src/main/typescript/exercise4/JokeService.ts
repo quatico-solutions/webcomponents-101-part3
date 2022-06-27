@@ -5,13 +5,15 @@ export type JokeProperties = JokeProperty[];
 
 export class JokeService {
     public getJokeData(joke: JokeData, props?: JokeProperties): Partial<JokeData> {
-        return Object.entries(joke).reduce((acc: Partial<JokeData>, [key, value]) => {
-            if (!props || props.includes(key as JokeProperty)) {
+        const result: Partial<JokeData> = {};
+        for (const key in joke) {
+            const name = key as JokeProperty;
+            if (!props || (props.includes(name) && Object.prototype.hasOwnProperty.call(joke, name))) {
                 // @ts-ignore - type is not indexable
-                acc[key] = value;
+                result[key] = joke[key];
             }
-            return acc;
-        }, {} as JokeData);
+        }
+        return result;
     }
 
     public getRandomJoke(category?: string): Promise<JokeData> {
