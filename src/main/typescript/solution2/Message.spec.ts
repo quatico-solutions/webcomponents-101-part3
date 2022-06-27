@@ -1,4 +1,3 @@
-import { hash } from "./hash";
 import { Message } from "./Message";
 
 describe("Ctor", () => {
@@ -20,10 +19,10 @@ describe("sign", () => {
     });
 
     it("yields signed signature with text and encode function", () => {
-        const target = (text: string) => hash(`!!!${text}!!!`);
+        const target = (text: string) => `!!!${text}!!!`;
 
         const testObj = new Message().sign(target);
 
-        expect(testObj.getSignature()).toBe("243201490");
+        expect(testObj.getSignature()).toBe("!!!Message!!!");
     });
 });

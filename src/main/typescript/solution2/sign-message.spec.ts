@@ -1,29 +1,28 @@
-import { signMessage } from "./sign-message";
 import { Message } from "./Message";
-import { hash } from "./hash";
+import { signMessage } from "./sign-message";
 
 describe("sign", () => {
     it("calls sign function with secret and message", () => {
         const target = jest.fn();
 
-        signMessage(new Message(), target, "expected-secret");
+        signMessage(new Message(), target);
 
-        expect(target).toHaveBeenCalledWith("expected-secret", "Message");
+        expect(target).toHaveBeenCalledWith("Message");
     });
 
     it("yields signature with message", () => {
         const target = new Message();
 
-        signMessage(target, (secret: string, text: string) => hash(`!!!${secret}:::${text}!!!`));
+        signMessage(target);
 
-        expect(target.getSignature()).toBe("3955296");
+        expect(target.getSignature()).toBe("215062215");
     });
 
-    it("yields signature with secret and message", () => {
+    it("yields signature with message and custom encode function", () => {
         const target = new Message();
 
-        signMessage(target, (secret: string, text: string) => hash(`!!!${secret}:::${text}!!!`), "expected-secret");
+        signMessage(target, (text: string) => `expected:::${text}`);
 
-        expect(target.getSignature()).toBe("21271659");
+        expect(target.getSignature()).toBe("expected:::Message");
     });
 });

@@ -1,11 +1,5 @@
-import { hash } from "./hash";
 import { Message } from "./Message";
-import { EncodeFn } from "./EncodeFn";
+import { SecretEncodeFn } from "./SecretEncodeFn";
+import { encode } from "./secure-encode";
 
-export const signMessage = (
-    message: Message,
-    encodeFn: EncodeFn = (secret: string, text: string) => hash(`!!!${secret}:::${text}!!!`),
-    secret?: string
-): Message => {
-    return message.sign((text: string) => encodeFn(secret ?? "my-super-secret", text));
-};
+export const signMessage = (message: Message, encodeFn?: SecretEncodeFn): Message => message.sign(encodeFn ?? encode);
